@@ -17,3 +17,5 @@ tests/.coverage
 build/
 tests/report/
 .idea
+db.sqlite3
+polls/migrations/
