@@ -2,13 +2,22 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-{% if latest_questions %}
-    <ul>
+<div class="container text-center" id="latestQuestions">
+    {% if latest_questions %}
+    <ul class="list-group">
     {% for question in latest_questions %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        <div class="row form-group">
+            <div class="col-xs-4"></div>
+            <li><a href="{% url 'polls:detail' question.id %}" class="list-group-item  col-xs-4" >{{ question.question_text }}</a></li>
+        </div>
+
     {% endfor %}
     </ul>
+</div>
+
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
